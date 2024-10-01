@@ -1,0 +1,12 @@
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\bin\Debug\net8.0\Metas.Shared.Modelos.deps.json
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\bin\Debug\net8.0\Metas.Shared.Modelos.dll
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\bin\Debug\net8.0\Metas.Shared.Modelos.pdb
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.AssemblyInfoInputs.cache
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.AssemblyInfo.cs
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.csproj.CoreCompileInputs.cache
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.sourcelink.json
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.dll
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\refint\Metas.Shared.Modelos.dll
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\Metas.Shared.Modelos.pdb
+C:\Users\mathe\source\repos\Metas\Metas.Shared.Modelos\obj\Debug\net8.0\ref\Metas.Shared.Modelos.dll
