@@ -1,4 +1,5 @@
 ﻿using Metas.Shared.Dados.Banco;
+using Metas.Shared.Modelos.Modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,12 @@ public class DAL<T>(MetasContext context) where T : class
 {
     private readonly MetasContext _context = context;
 
-    public IEnumerable<T> Listar()
+    public IEnumerable<T>? Listar()
     {
+        if (typeof(T) == typeof(Meta))
+        {
+            return _context.Set<Meta>().Include(m => m.Passos).AsEnumerable() as IEnumerable<T>;
+        }
         return _context.Set<T>().AsEnumerable();
     }
 

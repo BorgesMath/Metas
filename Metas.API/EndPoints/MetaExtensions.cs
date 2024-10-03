@@ -45,7 +45,15 @@ public static class MetaExtensions
 
     private static MetaResponse EntityToResponse(Meta meta)
     {
-        return new MetaResponse(meta.Nome, meta.Tempo, meta.Descricao, meta.Status);
+
+      var passoResponses = meta.Passos.Select(p => new PassoResponse(
+      p.Nome,
+      p.Tempo,
+      p.Status,
+      p.Descricao
+        )).ToList();
+
+        return new MetaResponse(meta.Nome, meta.Tempo, meta.Descricao, meta.Status, passoResponses);
     }
 
 

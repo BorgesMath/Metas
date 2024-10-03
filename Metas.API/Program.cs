@@ -71,7 +71,7 @@ app.UseAuthorization();
 #region ChamadaDeEndPoints
 
 app.AddEndPointsMetas();
-//app.AddEndpointPassos();
+app.AddEndPointsPassos();
 
 
 
@@ -89,7 +89,6 @@ app.MapPost("auth/logout", async ([FromServices] SignInManager<PessoaComAcesso> 
 
 app.UseSwagger();
 app.UseSwaggerUI();
-//Chamando o Swagger
 
 
 app.Run();

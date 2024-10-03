@@ -1,3 +1,5 @@
-﻿namespace Metas.API.Response;
+﻿using Metas.Shared.Modelos.Modelos;
 
-public record MetaResponse(string Nome, int? Tempo, string? Descricao,  bool Status);
+namespace Metas.API.Response;
+
+public record MetaResponse(string Nome, int? Tempo, string? Descricao,  bool Status, ICollection<PassoResponse> Passos);
