@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Metas.shared.Dados")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2057385e9a0ec40dbd212166a0f21f1325af15ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b7ff6bc86d66a0e43c3b8ff6bdba46050d0d38f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Metas.shared.Dados")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Metas.shared.Dados")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

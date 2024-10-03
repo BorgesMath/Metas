@@ -2,6 +2,7 @@
 using Metas.shared.Dados.Banco;
 using Metas.Shared.Modelos.Modelos;
 using Microsoft.AspNetCore.Mvc;
+using Metas.API.Requests;
 
 namespace Metas.API.EndPoints;
 
@@ -32,6 +33,22 @@ public static class MetaExtensions
             return Results.Ok(listaDeMetasResponse);
       
 
+        });
+
+        groupBuilder.MapPost("", ([FromServices] DAL  <Meta> dal, [FromBody] MetaRequest request) =>
+        {
+
+            Meta meta1 = new(request.Name)
+            {
+                Continuo = request.Continuo,
+                Tempo = request.Tempo,
+                Descricao = request.Descricao,
+
+            };
+
+
+            Task task = dal.AdicionarAsync(meta1);
+            return Results.Ok();
         });
 
     }
