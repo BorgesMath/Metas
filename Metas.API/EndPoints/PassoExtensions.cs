@@ -65,10 +65,10 @@ public static class PassoExtensions
                 passo.Descricao = requestEdit.Descricao;
             }
 
-            // Salva as mudanças no banco de dados
+            
             await dal.AtualizarAsync(passo);
 
-            // Retorna a resposta de sucesso
+           
             return Results.Ok("Passo atualizado com sucesso.");
         });
 
@@ -86,17 +86,24 @@ public static class PassoExtensions
             return Results.Ok("Passo deletado com sucesso.");
         });
 
-        groupBuilder.MapPost("", async ([FromServices] DAL<Passos> dal, [FromBody] PassosRequest request) =>
+        groupBuilder.MapPost("", async ([FromServices] DAL<Passos> dalPasso, [FromServices] DAL<Meta> dalMeta, [FromBody] PassosRequest request) =>
         {
+            var meta = await dalMeta.RecuperarPorAsync(m => m.Id == request.MetaID);
+
+            if (meta == null)
+            {
+                return Results.NotFound("Meta associada ao Passo não foi encontrada.");
+            }
+
             Passos novoPasso = new(request.Name)
             {
                 Continuo = request.Continuo,
                 Tempo = request.Tempo,
                 Descricao = request.Descricao,
-                MetaID = request.MetaID  
+                MetaID = request.MetaID 
             };
 
-            await dal.AdicionarAsync(novoPasso);
+            await dalPasso.AdicionarAsync(novoPasso);
 
             return Results.Ok("Passo criado com sucesso.");
         });
