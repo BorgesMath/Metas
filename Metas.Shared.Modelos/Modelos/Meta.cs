@@ -6,22 +6,15 @@ using System.Threading.Tasks;
 
 namespace Metas.Shared.Modelos.Modelos;
 
-public class Meta
+public class Meta(string nome)
 {
-    // Construtor
-    public Meta(string nome)
-    {
-        this.Nome = nome;
-
-    }
-
     public int Id { get; set; }
 
     public virtual ICollection<Passos> Passos { get; set; } = [];
 
     public bool Status { get; set; } = false;
 
-    public string Nome { get; set; }
+    public string Nome { get; set; } = nome;
 
     public int? Tempo { get; set; }
 

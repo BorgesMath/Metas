@@ -16,7 +16,7 @@ public class Passos(string nome)
     [JsonIgnore]
     public virtual Meta? Meta { get; set; }  
 
-    public required string Nome { get; set; } = nome;  
+    public string Nome { get; set; } = nome;  
 
     public bool Continuo { get; set; }  
 

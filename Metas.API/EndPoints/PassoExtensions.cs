@@ -1,4 +1,5 @@
-﻿using Metas.API.Response;
+﻿using Metas.API.Requests;
+using Metas.API.Response;
 using Metas.shared.Dados.Banco;
 using Metas.Shared.Modelos.Modelos;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,87 @@ public static class PassoExtensions
 
         });
 
+        groupBuilder.MapPut("{id}", async ([FromServices] DAL<Passos> dal, [FromBody] PassosRequestEdit requestEdit, int id) =>
+        {
+            var passo = await dal.RecuperarPorAsync(p => p.Id == id);
+
+            if (passo == null)
+            {
+                return Results.NotFound("Passo não encontrado.");
+            }
+
+            if (requestEdit.Name is not null)
+            {
+                passo.Nome = requestEdit.Name;
+            }
+
+            if (requestEdit.Continuo.HasValue)
+            {
+                passo.Continuo = requestEdit.Continuo.Value;
+            }
+
+            if (requestEdit.Tempo.HasValue)
+            {
+                passo.Tempo = requestEdit.Tempo.Value;
+            }
+
+            if (requestEdit.Descricao is not null)
+            {
+                passo.Descricao = requestEdit.Descricao;
+            }
+
+            // Salva as mudanças no banco de dados
+            await dal.AtualizarAsync(passo);
+
+            // Retorna a resposta de sucesso
+            return Results.Ok("Passo atualizado com sucesso.");
+        });
+
+        groupBuilder.MapDelete("{id}", async ([FromServices] DAL<Passos> dal, int id) =>
+        {
+            var passo = await dal.RecuperarPorAsync(p => p.Id == id);
+
+            if (passo == null)
+            {
+                return Results.NotFound("Passo não encontrado.");
+            }
+
+            await dal.DeletarAsync(passo);
+
+            return Results.Ok("Passo deletado com sucesso.");
+        });
+
+        groupBuilder.MapPost("", async ([FromServices] DAL<Passos> dal, [FromBody] PassosRequest request) =>
+        {
+            Passos novoPasso = new(request.Name)
+            {
+                Continuo = request.Continuo,
+                Tempo = request.Tempo,
+                Descricao = request.Descricao,
+                MetaID = request.MetaID  
+            };
+
+            await dal.AdicionarAsync(novoPasso);
+
+            return Results.Ok("Passo criado com sucesso.");
+        });
+
+        groupBuilder.MapPatch("check/{id}", async ([FromServices] DAL<Passos> dal, int id) =>
+        {
+            
+            var passo = await dal.RecuperarPorAsync(p => p.Id == id);
+
+            if (passo == null)
+            {
+                return Results.NotFound("Passo não encontrado.");
+            }
+
+            passo.Status = !passo.Status;
+
+            await dal.AtualizarAsync(passo);
+
+            return Results.Ok($"Status do passo atualizado para {(passo.Status ? "completo" : "incompleto")}.");
+        });
     }
 
     #region FUNCOES AUXILIARES
