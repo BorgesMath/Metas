@@ -79,3 +79,7 @@ C:\Users\mathe\source\repos\Metas\Metas.API\bin\Debug\net8.0\Metas.shared.Dados.
 C:\Users\mathe\source\repos\Metas\Metas.API\obj\Debug\net8.0\Metas.API.csproj.AssemblyReference.cache
 C:\Users\mathe\source\repos\Metas\Metas.API\obj\Debug\net8.0\Metas.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\mathe\source\repos\Metas\Metas.API\obj\Debug\net8.0\Metas.API.csproj.Up2Date
+C:\Users\mathe\source\repos\Metas\Metas.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\mathe\source\repos\Metas\Metas.API\bin\Debug\net8.0\Twilio.dll
+C:\Users\mathe\source\repos\Metas\Metas.API\bin\Debug\net8.0\Twilio.AspNet.Common.dll
+C:\Users\mathe\source\repos\Metas\Metas.API\bin\Debug\net8.0\Twilio.AspNet.Core.dll

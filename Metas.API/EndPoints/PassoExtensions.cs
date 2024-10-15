@@ -19,22 +19,22 @@ public static class PassoExtensions
 
 
 
-        groupBuilder.MapGet("", ([FromServices] DAL<Passos> dal) =>
-        {
+        //groupBuilder.MapGet("", ([FromServices] DAL<Passos> dal) =>
+        //{
 
-            var listaDePassos = dal.Listar();
+        //    var listaDePassos = dal.Listar();
 
-            if (listaDePassos is null)
-            {
-                return Results.NotFound();
-            }
-            var listaDePassosResponse = EntityListToResponseList(listaDePassos);
-
-
-            return Results.Ok(listaDePassosResponse);
+        //    if (listaDePassos is null)
+        //    {
+        //        return Results.NotFound();
+        //    }
+        //    var listaDePassosResponse = EntityListToResponseList(listaDePassos);
 
 
-        });
+        //    return Results.Ok(listaDePassosResponse);
+
+
+        //});
 
         groupBuilder.MapPut("{id}", async ([FromServices] DAL<Passos> dal, [FromBody] PassosRequestEdit requestEdit, int id) =>
         {
@@ -86,9 +86,9 @@ public static class PassoExtensions
             return Results.Ok("Passo deletado com sucesso.");
         });
 
-        groupBuilder.MapPost("", async ([FromServices] DAL<Passos> dalPasso, [FromServices] DAL<Meta> dalMeta, [FromBody] PassosRequest request) =>
+        groupBuilder.MapPost("{metaID}", async ([FromServices] DAL<Passos> dalPasso, [FromServices] DAL<Meta> dalMeta, [FromBody] PassosRequest request, int metaID) =>
         {
-            var meta = await dalMeta.RecuperarPorAsync(m => m.Id == request.MetaID);
+            var meta = await dalMeta.RecuperarPorAsync(m => m.Id == metaID);
 
             if (meta == null)
             {
@@ -100,7 +100,7 @@ public static class PassoExtensions
                 Continuo = request.Continuo,
                 Tempo = request.Tempo,
                 Descricao = request.Descricao,
-                MetaID = request.MetaID 
+                MetaID = metaID 
             };
 
             await dalPasso.AdicionarAsync(novoPasso);
